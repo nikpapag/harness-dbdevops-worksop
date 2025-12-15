@@ -1,4 +1,4 @@
-# Lab 1: Deploy a Change
+## Lab 1: Deploy a Change
 
 ## Key Outcomes
 - No friction for developers  
