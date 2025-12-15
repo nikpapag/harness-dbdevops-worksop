@@ -76,7 +76,7 @@ In your configured Git repo, add a changeSet to alter the schema:
                 type: varchar(255)
                 constraints:
                   nullable: true
-
+```
 
 
 The pipeline will automatically trigger:
