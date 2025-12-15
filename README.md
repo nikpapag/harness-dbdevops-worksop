@@ -83,12 +83,13 @@ The pipeline will automatically trigger:
 The schema change will be applied to the target database.
 
 ### Value Callouts
-
-1. Familiar Workflow – Developers stay in Git.
-2. Single Source of Truth – All changes are versioned together.
-3. Lower Learning Curve – GitOps-aligned workflows.
-4. Accelerated Velocity – No manual DB scripts or tickets.
-5. Compliance by Design – Automated, policy-driven changes.
+| Aspect | Description |
+| :--- | :--- |
+| **Familiar Workflow** | Developers stay in Git. |
+| **Single Source of Truth** | All changes are versioned together. |
+| **Lower Learning Curve** | GitOps-aligned workflows. |
+| **Accelerated Velocity** | No manual DB scripts or tickets. |
+| **Compliance by Design** | TAutomated, policy-driven changes. |
 
 
 ## Lab 2: Roll Back a Change
