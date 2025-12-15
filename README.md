@@ -82,3 +82,11 @@ In your configured Git repo, add a changeSet to alter the schema:
 The pipeline will automatically trigger:
 The schema change will be applied to the target database.
 
+### Value Callouts
+
+1. Familiar Workflow – Developers stay in Git.
+2. Single Source of Truth – All changes are versioned together.
+3. Lower Learning Curve – GitOps-aligned workflows.
+4. Accelerated Velocity – No manual DB scripts or tickets.
+5. Compliance by Design – Automated, policy-driven changes.
+
