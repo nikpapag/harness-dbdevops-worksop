@@ -190,7 +190,7 @@ The user reviews the policy failure, understands the violation, and updates the 
 3.  Name the policy: \`Block Destructive SQL\`
 4.  In the policy editor, paste the following content and click **Save**:
 
-\`\`\`opa
+```opa
 package db_sql
 
 rules := [
@@ -216,7 +216,7 @@ deny[msg] {
   regex.match(concat("",[".*",rule.regex[k],".*"]), lower(input.sqlStatements[l]))
   msg := "dropping data is not permitted"
 }
-\`\`\`
+```
 
 ### Step 2: Create a Policy Set and Enforce in Pipeline
 
@@ -243,14 +243,14 @@ deny[msg] {
 
 1.  In your configured Git repo, add a \`changeSet\` that violates the policy (attempting to drop a table):
 
-    \`\`\`yaml
+  ```yaml
     - changeSet:
         id: 2025-05-21-drop-users-table
         author: harness-lab
         changes:
           - dropTable:
               tableName: users
-    \`\`\`
+    ```
 
 2.  Commit and push the change to the monitored branch (\`main\`).
 3.  Commit and push the change to the monitored branch by updating the commit comments and pushing the commit button.
