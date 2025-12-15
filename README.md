@@ -279,3 +279,78 @@ The pipeline will automatically trigger. Observe that:
 | **Policy-as-Code** | Governance is defined in code and version-controlled—just like everything else. |
 | **Risk Reduction** | Disallowed or unsafe changes are caught before they affect production. |
 | **Scalable Compliance** | Teams can move fast while meeting security and audit requirements at scale. |
+
+
+## Lab 4: Orchestrate Changes Across Multiple Environments
+
+## Key Outcomes
+
+* **Single pipeline** for multi-env DB deployments
+* **Environment-specific guardrails**
+* **Reduced handoffs** and manual coordination
+
+---
+
+## Overview
+
+In this lab, the user promotes a database change through multiple environments — **dev, staging, and production** — using a single orchestrated pipeline. Each stage applies the change to a different target database with environment-specific configurations, policies, and approval steps. 
+
+As changes progress, the user can view which schema versions are deployed in each environment directly in the Harness UI — removing the need to manually track or document status.
+
+---
+
+## Walkthrough
+
+### Step 1: Add QA Stage (DB2)
+
+1.  In your existing pipeline from Lab 1, click **Add Stage** and choose **Custom Stage**, enter a name (`Deploy QA`).
+2.  Click **Add Step Group**, enter a name (`DB`), then enable the **Containerized Stage**.
+3.  Select the Kubernetes cluster (`DBDevOps`) where the step should run.
+4.  Inside the stage, click **Add Step** and select **DBSchemaApply** (under DB DevOps).
+5.  Name the step: `Deploy Database Schema - QA`.
+6.  In the step configuration:
+    * Schema: `DB`
+    * Database Instance: `DB2`
+7.  Click **Apply Changes**.
+
+### Step 2: Add Production Stage (DB3)
+
+1.  In your existing pipeline from Lab 1, click **Add Stage** and choose **Custom Stage**, enter a name (`Deploy Prod`).
+2.  Click **Add Step Group**, enter a name (`DB`), then enable the **Containerized Stage**.
+3.  Select the Kubernetes cluster (`DBDevOps`) where the step should run.
+4.  Inside the stage, click **Add Step** and select **Apply Schema**.
+5.  Name the step: `Deploy Database Schema - Prod`.
+6.  In the step configuration:
+    * Schema: `DB`
+    * Database Instance: `DB3`
+7.  Click **Apply Changes**.
+
+### Step 3: Save and Run the Pipeline
+
+1.  Click **Save** to finalize the multi-stage pipeline.
+2.  In git, remove the table drop change, and the broken change from lab 2, then commit to kick off the pipeline.
+3.  Observe the deployment of the previously committed schema change through:
+    * Stage 1: DB1 (Dev)
+    * Stage 2: DB2 (QA)
+    * Stage 3: DB3 (Production)
+4.  Verify successful execution in all stages.
+
+### Step 4: View Schema Overview
+
+1.  From the left-hand nav, go to **Overview**.
+2.  Observe the green checkmarks next to Dev, QA, and Production, indicating: 
+    * Where the change has been applied
+    * That each deployment completed successfully
+3.  This provides visibility across all environments from a single pane of glass.
+
+---
+
+## Value Callouts
+
+| Feature | Description |
+| :--- | :--- |
+| **Unified Workflow** | One pipeline governs the full lifecycle of a database change from dev to prod. |
+| **Environment-Specific Control** | Each stage can have its own policies, approvers, and rollback settings. |
+| **Schema Visibility** | The Harness UI shows which schema changes have been applied where, so teams always know the current state across environments. |
+| **Reduced Toil** | No need to manually coordinate between environments or hand off to DBAs. |
+| **Production Readiness by Design** | Staged rollouts and approvals ensure only validated changes reach production. |
