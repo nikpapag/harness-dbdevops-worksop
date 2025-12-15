@@ -162,4 +162,116 @@ The pipeline will automatically trigger:
 2. No Manual Intervention: Developers do not need to SSH into environments or locate old scripts—rollback is built into the pipeline.
 3. Resilience as Default: Pipelines are designed to fail gracefully, keeping environments stable and deploy-ready.
 
+## 🛡️ Lab 3: Enforce Governance and Policy
 
+## Key Outcomes
+
+* Targeted **policy-as-code** enforcement
+* Standardized review and **approval gates**
+* **Risk mitigation** before deployment
+
+---
+
+## Overview
+
+In this lab, the user attempts to push a database changelog that **drops a table**—an action disallowed in this environment. The pipeline evaluates the change using integrated policy-as-code (OPA) rules and immediately blocks execution.
+
+The user reviews the policy failure, understands the violation, and updates the changelog to meet organizational standards before resubmitting.
+
+---
+
+## Walkthrough
+
+### Step 1: Create a Policy
+
+1.  In the left-hand panel, go to **Project Settings**.
+2.  Select **Policies**, then click **New Policy**.
+    > You may have to click the **X** in the upper right to dismiss a pop-up.
+3.  Name the policy: \`Block Destructive SQL\`
+4.  In the policy editor, paste the following content and click **Save**:
+
+\`\`\`opa
+package db_sql
+
+rules := [
+  {
+    "types": ["mssql","oracle","postgres","mysql"],
+    "environments": ["prod"],
+    "regex": [
+      "drop\\s+table",
+      "drop\\s+column",
+      "drop\\s+database",
+      "drop\\s+schema"
+    ]
+  },{
+    "types": ["oracle"],
+    "environments": ["prod"],
+    "regex": ["drop\\s+catalog"]
+  }
+]
+
+deny[msg] {
+  some i, k, l
+  rule := rules[i]
+  regex.match(concat("",[".*",rule.regex[k],".*"]), lower(input.sqlStatements[l]))
+  msg := "dropping data is not permitted"
+}
+\`\`\`
+
+### Step 2: Create a Policy Set and Enforce in Pipeline
+
+1.  Click **Policy Sets**, then click **New Policy Set**.
+2.  Name the Policy Set: \`Prevent Destructive Changes\`.
+3.  Under Entity Type, select **Custom**.
+4.  Under Event, select **On Step**.
+5.  Click **Continue**.
+6.  Under Policy to Evaluate, click **Add Policy**.
+7.  Select the \`Block Destructive SQL\` policy.
+8.  Set the evaluation mode to **Error and Exit**.
+9.  Click **Apply**, then **Finish**.
+10. If necessary, toggle **Enforce**.
+11. **In the pipeline:**
+    * Open the **Apply Change** step.
+    * Switch to the **Advanced** tab and expand the **Policy Enforcement** section.
+    * Select \`Prevent Destructive Changes\` policy set from the Project scope.
+    * Click **Apply Changes**.
+    * **Save Pipeline**.
+
+> The new Policy Set is now active and will enforce the policy at pipeline runtime.
+
+### Step 3: Push a Disallowed Change to Git
+
+1.  In your configured Git repo, add a \`changeSet\` that violates the policy (attempting to drop a table):
+
+    \`\`\`yaml
+    - changeSet:
+        id: 2025-05-21-drop-users-table
+        author: harness-lab
+        changes:
+          - dropTable:
+              tableName: users
+    \`\`\`
+
+2.  Commit and push the change to the monitored branch (\`main\`).
+3.  Commit and push the change to the monitored branch by updating the commit comments and pushing the commit button.
+
+#### Pipeline Observation
+
+The pipeline will automatically trigger. Observe that:
+
+* The policy is triggered as part of the pipeline execution.
+* The execution fails before deployment.
+* The pipeline halts with the error:
+    > dropping data is not permitted
+
+---
+
+## Value Callouts
+
+| Aspect | Description |
+| :--- | :--- |
+| **Guardrails, Not Roadblocks** | Policies surface issues early without slowing down developers who follow best practices. |
+| **Standardized Governance** | Approval workflows and checks are consistent across teams, environments, and databases. |
+| **Policy-as-Code** | Governance is defined in code and version-controlled—just like everything else. |
+| **Risk Reduction** | Disallowed or unsafe changes are caught before they affect production. |
+| **Scalable Compliance** | Teams can move fast while meeting security and audit requirements at scale. |
