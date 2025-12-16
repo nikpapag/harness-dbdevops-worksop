@@ -38,7 +38,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 
 | Input      | Value     | Notes |
 | ---------- | --------- | ----- |
-| Name       | <pre>`Deploy DB Schema`</pre> ||
+| Name       | <code>`Deploy DB Schema`</code> ||
 | Setup | Inline ||
 
 5. Click **Start**.  
