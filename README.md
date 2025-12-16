@@ -400,27 +400,64 @@ As changes progress, the user can view which schema versions are deployed in eac
 
 ### Step 1: Add QA Stage (DB2)
 
-1.  In your existing pipeline from Lab 1, click **Add Stage** and choose **Custom Stage**, enter a name (`Deploy QA`).
-2.  Click **Add Step Group**, enter a name (`DB`), then enable the **Containerized Stage**.
-3.  Select the Kubernetes cluster (`DBDevOps`) where the step should run.
-4.  Inside the stage, click **Add Step** and select **DBSchemaApply** (under DB DevOps).
-5.  Name the step: `Deploy Database Schema - QA`.
-6.  In the step configuration:
-    * Schema: `DB`
-    * Database Instance: `DB2`
-7.  Click **Apply Changes**.
+1.  In your existing pipeline from Lab 1, after the existing stages click **Add Stage**
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Stage Name | <pre>`Deploy QA`</pre>||
+
+
+2. Click **Add Step** and select **Add Step Group**
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`DB`</pre>||
+| Enable     | Containerized Execution||
+| Kuberentes Cluster | k8s-prod || 
+
+3. Inside the step group, click **Add Step**.
+4. From the available out of the box steps select **Apply Schema**
+3. Configure accordingly
+
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`eploy Database Schema - QA`</pre>||
+| Select DB Schema     | DB||
+| Database Instance | DB2 || 
+4. Click **Apply Changes**.
+
 
 ### Step 2: Add Production Stage (DB3)
 
-1.  In your existing pipeline from Lab 1, click **Add Stage** and choose **Custom Stage**, enter a name (`Deploy Prod`).
-2.  Click **Add Step Group**, enter a name (`DB`), then enable the **Containerized Stage**.
-3.  Select the Kubernetes cluster (`DBDevOps`) where the step should run.
-4.  Inside the stage, click **Add Step** and select **Apply Schema**.
-5.  Name the step: `Deploy Database Schema - Prod`.
-6.  In the step configuration:
-    * Schema: `DB`
-    * Database Instance: `DB3`
-7.  Click **Apply Changes**.
+
+1.  In your existing pipeline from Lab 1, after the existing stages click **Add Stage**
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Stage Name | <pre>`Deploy Prod`</pre>||
+
+
+2. Click **Add Step** and select **Add Step Group**
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`DB`</pre>||
+| Enable     | Containerized Execution||
+| Kuberentes Cluster | k8s-prod || 
+
+3. Inside the step group, click **Add Step**.
+4. From the available out of the box steps select **Apply Schema**
+3. Configure accordingly
+
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`Deploy Database Schema - Prod`</pre>||
+| Select DB Schema     | DB||
+| Database Instance | DB3 || 
+4. Click **Apply Changes**.
+
 
 ### Step 3: Save and Run the Pipeline
 
