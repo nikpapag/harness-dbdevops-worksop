@@ -5,7 +5,7 @@
 2. From the top navigation bar select projects
 3. By clicking the available project everything will be scoped to that project
 
-<img width="819" height="538" alt="image" src="https://github.com/user-attachments/assets/b4e736c3-8b7a-4043-89fa-3a690ff169ff" />
+<img width="410" height="275" alt="image" src="https://github.com/user-attachments/assets/b4e736c3-8b7a-4043-89fa-3a690ff169ff" />
 
 ### Changing harness modules
 - As part of this lab we will switch between modules several times
