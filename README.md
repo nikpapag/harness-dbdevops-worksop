@@ -14,6 +14,7 @@ In order to switch modules
 1. Click on the **nine dot** menu icon
 2. Select the module relevant to the step
 3. The lab begins in the code repository
+<img width="362" height="193" alt="image" src="https://github.com/user-attachments/assets/2d953dd9-b370-4308-9504-a9bf13f7fb9a" />
 
 
 ## Lab 1: Deploy a Change
