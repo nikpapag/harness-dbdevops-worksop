@@ -14,6 +14,7 @@ In order to switch modules
 1. Click on the **nine dot** menu icon
 2. Select the module relevant to the step
 3. The lab begins in the code repository
+
 <img width="362" height="193" alt="image" src="https://github.com/user-attachments/assets/2d953dd9-b370-4308-9504-a9bf13f7fb9a" />
 
 
@@ -37,7 +38,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 3. Click **Create a Pipeline**, enter a name
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`Deploy DB Schema`</pre>||
 | Setup | Inline ||
 
@@ -45,14 +46,14 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 5. Click **Add Stage** and choose **Custom Stage**
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Stage Name | <pre>`Deploy Dev`</pre>||
 
 
 6. Click **Add Step** and select **Add Step Group**
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
 | Kuberentes Cluster | k8s-prod || 
@@ -67,7 +68,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`Schema Apply`</pre>||
 | Select DB Schema     | DB||
 | Database Instance | DB1 || 
@@ -99,7 +100,7 @@ Verify that:
 3. Choose **Harness** as the trigger type.
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`Update`</pre>||
 | Repository | db_changes||
 | Event      | Push ||
@@ -108,7 +109,7 @@ Verify that:
 5. Under conditions
 
 | Input      | Operator     | Value |
-| ---------- | --------- | ----- |
+| ---------- | --------- | ----------------------  |
 | Branch name(s)       | Equals | <pre>`main`</pre>|
 | hanged File | Equals | <pre>`changelog.yaml`</pre>|
 
@@ -181,7 +182,7 @@ This simulates a real-world scenario where a change fails validation or breaks a
 5. Configure accordingly:
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`Schema Rollback`</pre>||
 | Select DB Schema     | DB||
 | Select DB Instance | DB1 || 
@@ -265,7 +266,7 @@ The user reviews the policy failure, understands the violation, and updates the 
     > You may have to click the **X** in the upper right to dismiss a pop-up.
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`Block Destructive SQL`</pre>||
 
 3. Lets block **drop of data**
@@ -308,7 +309,7 @@ deny[msg] {
 2. Click **+ New Policy Set**
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`Prevent Destructive Changes`</pre>||
 | Entity Type | Custom ||
 | On what event | On Step || 
@@ -403,14 +404,14 @@ As changes progress, the user can view which schema versions are deployed in eac
 1.  In your existing pipeline from Lab 1, after the existing stages click **Add Stage**
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Stage Name | <pre>`Deploy QA`</pre>||
 
 
 2. Click **Add Step** and select **Add Step Group**
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
 | Kuberentes Cluster | k8s-prod || 
@@ -421,7 +422,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`Deploy Database Schema - QA`</pre>||
 | Select DB Schema     | DB||
 | Database Instance | DB2 || 
@@ -434,14 +435,14 @@ As changes progress, the user can view which schema versions are deployed in eac
 1.  In your existing pipeline from Lab 1, after the existing stages click **Add Stage**
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Stage Name | <pre>`Deploy Prod`</pre>||
 
 
 2. Click **Add Step** and select **Add Step Group**
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ----------------------  | ----- |
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
 | Kuberentes Cluster | k8s-prod || 
@@ -452,7 +453,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 
 
 | Input      | Value     | Notes |
-| ---------- | --------- | ----- |
+| ---------- | ---------------------- | ----- |
 | Name       | <pre>`Deploy Database Schema - Prod`</pre>||
 | Select DB Schema     | DB||
 | Database Instance | DB3 || 
