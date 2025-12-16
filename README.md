@@ -41,10 +41,22 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | Name       | <pre>`Deploy DB Schema`</pre>||
 | Setup | Inline ||
 
-5. Click **Start**.  
-6. Click **Add Stage** and choose **Custom Stage**, enter a name (**Deploy Dev**).  
-7. Click **Add Step Group**, enter a name (**DB**), then enable **Containerized Execution**.  
-8. Select the Kubernetes cluster (**K8s-prod**) where the step should run.
+4. Click **Start**.  
+5. Click **Add Stage** and choose **Custom Stage**
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Stage Name | <pre>`Deploy Dev`</pre>||
+
+
+6. Click **Add Step** and select **Add Step Group**
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`DB`</pre>||
+| Enable     | Containerized Execution||
+| Kuberentes Cluster | k8s-prod || 
+
 
 ---
 
