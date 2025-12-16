@@ -118,17 +118,17 @@ In your configured Git repo, add a changeSet to alter the schema:
 
 ```yaml
   - changeSet:
-      id: add-second-email-column
-      author: harness-lab
-      changes:
-        - addColumn:
-            tableName: users
-            columns:
-              - column:
-                  name: second_email
-                  type: varchar(255)
-                  constraints:
-                    nullable: true
+     id: add-second-email-column
+     author: harness-lab
+     changes:
+       - addColumn:
+           tableName: users
+           columns:
+             - column:
+                 name: second_email
+                 type: varchar(255)
+                 constraints:
+                   nullable: true
 ```
 
 
