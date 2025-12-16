@@ -171,20 +171,29 @@ This simulates a real-world scenario where a change fails validation or breaks a
 ### Walkthrough
 
 #### Step 1: Add a Rollback Step
-1. Navigate to your pipeline and locate the step group containing your **DBSchemaApply** step.  
-2. Hover below the apply step and click the **➕** icon to add a new step to the right of the existing step.  
-3. In the search bar, type **rollback**, and select the **DBSchemaRollback** step.  
+1. Navigate to your pipeline and locate the step group containing your **Schema Apply** step.  
+2. Hover below the apply step and click the **➕** icon to add a new step to the right of the existing step.
 
-**Step Configuration**
-- **DB Schema**: DB  
-- **Database Instance**: db1  
-- **Rollback Count**: 1  
+<img width="160" height="130" alt="image" src="https://github.com/user-attachments/assets/b9c51756-4c3c-4245-b9ad-a0b4df908408" />
+
+   
+4. From the list of steps find and select the **Rollback Schema** step.
+5. Configure accordingly:
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`Schema Rollback`</pre>||
+| Select DB Schema     | DB||
+| Select DB Instance | DB1 || 
+| Rollback Count | <pre>`1`</pre>||
+
 
 **Add Conditional Execution**
-1. Navigate to the **Advanced** tab in the step configuration.  
-2. Click **Conditional Execution**.  
-3. Choose **If the previous step fails**.  
-4. Click **Apply Changes**, then **Save** the pipeline.
+1. Whithin the same step configuration, scroll to the top
+2. From the navigation bar select **Advanced** 
+3. Click **Conditional Execution**.  
+4. Choose **If the previous step fails**.  
+5. Click **Apply Changes**, then **Save** the pipeline.
 
 ---
 
