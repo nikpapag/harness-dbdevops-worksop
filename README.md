@@ -361,6 +361,10 @@ The pipeline will automatically trigger. Observe that:
 * The pipeline halts with the error:
     > dropping data is not permitted
 
+Review pipeline output and logs
+<img width="800" height="392" alt="image" src="https://github.com/user-attachments/assets/65b5ccd4-f2fe-41ab-a0b2-f43f23e858ca" />
+
+
 ---
 
 ## Value Callouts
