@@ -65,17 +65,6 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 2. From the available out of the box steps select **Apply Schema**
 3. Configure accordingly
 
-| Input      | Value     | Notes |
-| ---------- | --------- | ----- |
-| Name       | <pre>`Schema Apply`</pre>||
-| Select DB Schema     | Containerized Execution||
-| Kuberentes Cluster | k8s-prod || 
-
-
-
-
-4. Search for and select **Apply Schema** (under **DB DevOps**), enter a name (**Apply Change**).  
-5. In the step configuration:
 
 | Input      | Value     | Notes |
 | ---------- | --------- | ----- |
@@ -83,7 +72,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | Select DB Schema     | DB||
 | Database Instance | DB1 || 
 
-6. Click **Apply Changes**.
+4. Click **Apply Changes**.
 
 ---
 
