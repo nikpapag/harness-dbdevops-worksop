@@ -227,6 +227,7 @@ The pipeline will automatically trigger:
 1. The breaking change will attempt to apply and fail. **Can you identify why?**
 2. The rollback plan will be executed automatically.
 3. The environment will be restored to a stable state.
+4. Navigate to **Overview** under the Database DevOps module and review the change sets versions and status
 
 ### Value Callouts
 
