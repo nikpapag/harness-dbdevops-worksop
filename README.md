@@ -35,10 +35,12 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 1. In the Harness UI, navigate to the **Database DevOps** module
 2. From the left menu, select **Pipelines**.  
 3. Click **Create a Pipeline**, enter a name
+
 | Input      | Value     | Notes |
 | ---------- | --------- | ----- |
-| Name       |`Deploy DB Schema`|       |
-| Setup | Inline |       |
+| Name       | <pre>`Deploy DB Schema`</pre> ||
+| Setup | Inline ||
+
 5. Click **Start**.  
 6. Click **Add Stage** and choose **Custom Stage**, enter a name (**Deploy Dev**).  
 7. Click **Add Step Group**, enter a name (**DB**), then enable **Containerized Execution**.  
