@@ -81,7 +81,14 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 2. Click **Run** to manually execute it.  
 
 Verify that:
-- The schema changes are applied to the target database.  
+- The schema changes are applied to the target database.
+1. From the left menu select **DB Schemas**
+2. Click on **Migration State**
+3. The changes should be visible for **DB1**
+
+   <img width="1440" height="287" alt="image" src="https://github.com/user-attachments/assets/a62ecea7-a07a-4f5f-bfbc-3d4c7b574c0d" />
+
+  
 - The pipeline completes successfully.
 
 ---
