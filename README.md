@@ -263,8 +263,13 @@ The user reviews the policy failure, understands the violation, and updates the 
 1.  In the left-hand panel, go to **Project Settings**.
 2.  Select **Policies**, then click **New Policy**.
     > You may have to click the **X** in the upper right to dismiss a pop-up.
-3.  Name the policy: \`Block Destructive SQL\`
-4.  In the policy editor, paste the following content and click **Save**:
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`Block Destructive SQL`</pre>||
+
+3. Lets block **drop of data**
+4. Copy the REGO code below into the policy editor
 
 ```opa
 package db_sql
