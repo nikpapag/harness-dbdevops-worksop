@@ -219,12 +219,12 @@ In your configured Git repository, add a changeSet that attempts to make an inva
 ```
 
 
-Commit and push the change to the monitored branch by updating the commit comments and pushing the commit button.
+Commit and push the change to the main branch.
 
 ### Result
 
 The pipeline will automatically trigger:
-1. The breaking change will attempt to apply and fail.
+1. The breaking change will attempt to apply and fail. **Can you identify why?**
 2. The rollback plan will be executed automatically.
 3. The environment will be restored to a stable state.
 
