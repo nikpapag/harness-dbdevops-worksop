@@ -121,7 +121,7 @@ Verify that:
 2. Click into repo **db_changes**.  
 3. Click the **Edit** button.  
 
-In your configured Git repo, add a changeSet **after the existing changeset** to alter the schema:
+In your configured Git repo, add a changeSet **after the existing changeset** to introduce a new change:
 
 ```yaml
   - changeSet:
