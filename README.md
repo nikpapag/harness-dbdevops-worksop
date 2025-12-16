@@ -1,4 +1,4 @@
-## Lab Pre-requisites
+## Lab pre-read
 
 ### Changing project
 1. From the left hand-side menu click on account
