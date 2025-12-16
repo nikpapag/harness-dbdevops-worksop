@@ -349,7 +349,8 @@ deny[msg] {
   ```
 
 2.  Commit and push the change to the monitored branch (main).
-3.  Commit and push the change to the monitored branch by updating the commit comments and pushing the commit button.
+3.  Notice that the changeset attempts to drop the **users** table
+
 
 #### Pipeline Observation
 
