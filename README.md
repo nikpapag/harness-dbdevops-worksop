@@ -100,10 +100,10 @@ Verify that:
 4. Click **continue**
 5. Under conditions
 
-| Input      | Value     | Notes |
+| Input      | Operator     | Value |
 | ---------- | --------- | ----- |
-| Branch name(s)       | <pre>`main`</pre>||
-| hanged File | <pre>`changelog.yaml`</pre>||
+| Branch name(s)       | Equals | <pre>`main`</pre>|
+| hanged File | Equals | <pre>`changelog.yaml`</pre>|
 
 6. Click **Continue**, then **Create Trigger**.
 
