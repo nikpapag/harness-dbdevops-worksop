@@ -87,15 +87,23 @@ Verify that:
 ---
 
 ### Step 4: Enable Automatic Git-Based Deployment
-1. Navigate to your pipeline and click **Triggers**, then **New Trigger**.  
-2. Choose **Harness** as the trigger type.  
-3. Enter a name (**Update**).  
-4. Select the repository (**db_changes**) used in your DB Schema definition.  
-5. Select **Event (Push)**.  
+1. While in the pipeline studio use the top right navigation bar
+2. Click **Triggers**, then **New Trigger**.  
+3. Choose **Harness** as the trigger type.
 
-**Under Conditions:**
-- Set the branch name(s) (**main**) to monitor.  
-- Under **Changed Files**, enter the path to your changelog file (`changelog.yaml`).  
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`Update`</pre>||
+| Repository | db_changes||
+| Event      | Push ||
+
+4. Click **continue**
+5. Under conditions
+
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Branch name(s)       | <pre>`main`</pre>||
+| hanged File | <pre>`changelog.yaml`</pre>||
 
 6. Click **Continue**, then **Create Trigger**.
 
