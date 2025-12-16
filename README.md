@@ -40,7 +40,8 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | Input      | Value     | Notes |
 | ---------- | ----------------------  | ----- |
 | Name       | <pre>`Deploy DB Schema`</pre>||
-| Setup | Inline ||
+| Setup |Inline||
+|`                `|`                            `|`                `|
 
 4. Click **Start**.  
 5. Click **Add Stage** and choose **Custom Stage**
@@ -48,6 +49,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | Input      | Value     | Notes |
 | ---------- | ----------------------  | ----- |
 | Stage Name | <pre>`Deploy Dev`</pre>||
+|`                `|`                            `|`                `|
 
 
 6. Click **Add Step** and select **Add Step Group**
@@ -57,6 +59,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
 | Kuberentes Cluster | k8s-prod || 
+|`                `|`                            `|`                `|
 
 
 ---
@@ -72,6 +75,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | Name       | <pre>`Schema Apply`</pre>||
 | Select DB Schema     | DB||
 | Database Instance | DB1 || 
+|`                `|`                            `|`                `|
 
 4. Click **Apply Changes**.
 
@@ -104,6 +108,7 @@ Verify that:
 | Name       | <pre>`Update`</pre>||
 | Repository | db_changes||
 | Event      | Push ||
+|`                `|`                            `|`                `|
 
 4. Click **continue**
 5. Under conditions
@@ -112,6 +117,7 @@ Verify that:
 | ---------- | --------- | ----------------------  |
 | Branch name(s)       | Equals | <pre>`main`</pre>|
 | hanged File | Equals | <pre>`changelog.yaml`</pre>|
+|`                `|`                            `|`                `|
 
 6. Click **Continue**, then **Create Trigger**.
 
@@ -187,6 +193,7 @@ This simulates a real-world scenario where a change fails validation or breaks a
 | Select DB Schema     | DB||
 | Select DB Instance | DB1 || 
 | Rollback Count | <pre>`1`</pre>||
+|`                `|`                            `|`                `|
 
 
 **Add Conditional Execution**
@@ -268,6 +275,7 @@ The user reviews the policy failure, understands the violation, and updates the 
 | Input      | Value     | Notes |
 | ---------- | ----------------------  | ----- |
 | Name       | <pre>`Block Destructive SQL`</pre>||
+|`                `|`                            `|`                `|
 
 3. Lets block **drop of data**
 4. Copy the REGO code below into the policy editor
@@ -313,6 +321,7 @@ deny[msg] {
 | Name       | <pre>`Prevent Destructive Changes`</pre>||
 | Entity Type | Custom ||
 | On what event | On Step || 
+|`                `|`                            `|`                `|
   
 3. Click **Continue**.
 4. Under Policy to Evaluate, click **Add Policy**.
@@ -406,6 +415,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 | Input      | Value     | Notes |
 | ---------- | ----------------------  | ----- |
 | Stage Name | <pre>`Deploy QA`</pre>||
+|`                `|`                            `|`                `|
 
 
 2. Click **Add Step** and select **Add Step Group**
@@ -415,6 +425,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
 | Kuberentes Cluster | k8s-prod || 
+|`                `|`                            `|`                `|
 
 3. Inside the step group, click **Add Step**.
 4. From the available out of the box steps select **Apply Schema**
@@ -426,6 +437,8 @@ As changes progress, the user can view which schema versions are deployed in eac
 | Name       | <pre>`Deploy Database Schema - QA`</pre>||
 | Select DB Schema     | DB||
 | Database Instance | DB2 || 
+|`                `|`                                       `|`                `|
+
 4. Click **Apply Changes**.
 
 
@@ -437,6 +450,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 | Input      | Value     | Notes |
 | ---------- | ----------------------  | ----- |
 | Stage Name | <pre>`Deploy Prod`</pre>||
+|`                `|`                            `|`                `|
 
 
 2. Click **Add Step** and select **Add Step Group**
@@ -446,6 +460,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
 | Kuberentes Cluster | k8s-prod || 
+|`                `|`                            `|`                `|
 
 3. Inside the step group, click **Add Step**.
 4. From the available out of the box steps select **Apply Schema**
@@ -457,6 +472,8 @@ As changes progress, the user can view which schema versions are deployed in eac
 | Name       | <pre>`Deploy Database Schema - Prod`</pre>||
 | Select DB Schema     | DB||
 | Database Instance | DB3 || 
+|`                `|`                                       `|`                `|
+
 4. Click **Apply Changes**.
 
 
