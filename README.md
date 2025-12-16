@@ -17,7 +17,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 2. Click **Create a Pipeline**, enter a name (**Deploy DB Schema**), and click **Start**.  
 3. Click **Add Stage** and choose **Custom Stage**, enter a name (**Deploy Dev**).  
 4. Click **Add Step Group**, enter a name (**DB**), then enable **Containerized Execution**.  
-5. Select the Kubernetes cluster (**DBDevOps**) where the step should run.
+5. Select the Kubernetes cluster (**K8s-prod**) where the step should run.
 
 ---
 
