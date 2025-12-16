@@ -149,7 +149,7 @@ The schema change will be applied to the target database.
 | **Single Source of Truth** | All changes are versioned together. |
 | **Lower Learning Curve** | GitOps-aligned workflows. |
 | **Accelerated Velocity** | No manual DB scripts or tickets. |
-| **Compliance by Design** | TAutomated, policy-driven changes. |
+| **Compliance by Design** | Automated, policy-driven changes. |
 
 
 ## Lab 2: Roll Back a Change
