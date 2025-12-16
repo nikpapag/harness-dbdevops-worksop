@@ -201,21 +201,23 @@ This simulates a real-world scenario where a change fails validation or breaks a
 In your configured Git repository, add a changeSet that attempts to make an invalid change:
 
 ```yaml
-- changeSet:
-    id: add-duplicate-column
-    author: harness-lab
-    changes:
-      - addColumn:
-          tableName: users
-          columns:
-            - column:
-                name: id
-                type: int
-    rollback:
-      - sql:
-          comment: This is a no-op rollback for the invalid column addition.
-          sql: SELECT 1;
+  - changeSet:
+     id: add-duplicate-column
+     author: harness-lab
+     changes:
+       - addColumn:
+           tableName: users
+           columns:
+             - column:
+                 name: id
+                 type: int
+                 constraints:
+     rollback:
+       - sql:
+           comment: This is a no-op rollback for the invalid column addition.
+           sql: SELECT 1;
 ```
+
 
 Commit and push the change to the monitored branch by updating the commit comments and pushing the commit button.
 
