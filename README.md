@@ -299,26 +299,41 @@ deny[msg] {
 }
 ```
 
+5. Click **Save**
+
+   
 ### Step 2: Create a Policy Set and Enforce in Pipeline
 
-1.  Click **Policy Sets**, then click **New Policy Set**.
-2.  Name the Policy Set: \`Prevent Destructive Changes\`.
-3.  Under Entity Type, select **Custom**.
-4.  Under Event, select **On Step**.
-5.  Click **Continue**.
-6.  Under Policy to Evaluate, click **Add Policy**.
-7.  Select the \`Block Destructive SQL\` policy.
-8.  Set the evaluation mode to **Error and Exit**.
-9.  Click **Apply**, then **Finish**.
-10. If necessary, toggle **Enforce**.
-11. **In the pipeline:**
-    * Open the **Apply Change** step.
-    * Switch to the **Advanced** tab and expand the **Policy Enforcement** section.
-    * Select \`Prevent Destructive Changes\` policy set from the Project scope.
-    * Click **Apply Changes**.
-    * **Save Pipeline**.
+1. From the top right navigation bar click **Policy Sets**
+2. Click **+ New Policy Set**
 
-> The new Policy Set is now active and will enforce the policy at pipeline runtime.
+| Input      | Value     | Notes |
+| ---------- | --------- | ----- |
+| Name       | <pre>`Prevent Destructive Changes`</pre>||
+| Entity Type | Custom ||
+| On what event | On Step || 
+  
+3. Click **Continue**.
+4. Under Policy to Evaluate, click **Add Policy**.
+5. Select the \`Block Destructive SQL\` policy.
+6. Click **Apply**, then **Finish**.
+7. Toggle **Enforce**.
+
+<img width="828" height="136" alt="image" src="https://github.com/user-attachments/assets/b96feabf-9715-4745-bf2f-44b07e6c0db5" />
+
+**Add the policy set in the pipeline**
+
+1. Navigate to the pipeline studio (in edit mode)
+2. Open the **Apply Change** step
+3. Within the step configuration and from the top navigation bar select **Advanced**
+4. Expand the **Policy Enforcement** section
+5. Click on **Add/Modify Policy Set**
+6. From the navigation bar select your project
+7. Slect the **Prevent Destructive Changes** policy set
+8. Click **Apply Changes**
+9. **Save Pipeline**
+    
+> The new Policy Set is now active and lined to the pipeline runtime.
 
 ### Step 3: Push a Disallowed Change to Git
 
