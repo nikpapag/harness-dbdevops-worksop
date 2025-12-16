@@ -422,7 +422,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 
 | Input      | Value     | Notes |
 | ---------- | --------- | ----- |
-| Name       | <pre>`eploy Database Schema - QA`</pre>||
+| Name       | <pre>`Deploy Database Schema - QA`</pre>||
 | Select DB Schema     | DB||
 | Database Instance | DB2 || 
 4. Click **Apply Changes**.
