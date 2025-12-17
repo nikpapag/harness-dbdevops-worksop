@@ -1,16 +1,16 @@
 ## Lab pre-read
 
 ### Changing project
-1. From the left hand-side menu click on account
-2. From the top navigation bar select projects
-3. By clicking the available project everything will be scoped to that project
+1. From the left-hand side menu, click on **Account**
+2. From the top navigation bar, select **Projects**
+3. Click the desired project; everything will be scoped to that project
 
 <img width="410" height="275" alt="image" src="https://github.com/user-attachments/assets/b4e736c3-8b7a-4043-89fa-3a690ff169ff" />
 
 ### Changing harness modules
-- As part of this lab we will switch between modules several times
+- As part of this lab, we will switch between modules several times
 
-In order to switch modules
+In order to switch modules:
 1. Click on the **nine dot** menu icon
 2. Select the module relevant to the step
 3. The lab begins in the code repository
@@ -58,7 +58,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | ---------- | ----------------------  | ----- |
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
-| Kuberentes Cluster | k8s-prod || 
+| Kubernetes Cluster | k8s-prod || 
 |`                `|`                            `|`                `|
 
 
@@ -66,7 +66,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 
 ### Step 2: Add the Schema Deployment Step
 1. Inside the step group, click **Add Step**.
-2. From the available out of the box steps select **Apply Schema**
+2. From the available out-of-the-box steps, select **Apply Schema**
 3. Configure accordingly
 
 
@@ -90,8 +90,8 @@ Verify that:
 - The pipeline completes successfully.
 
 #### Verify changes
-1. From the left menu select **Overview**
-3. The changes should be visible for **DB1**
+1. From the left menu, select **Overview**
+2. The changes should be visible for **DB1**
 
 <img width="405" height="359" alt="image" src="https://github.com/user-attachments/assets/f506d418-6a8a-4c14-b0d7-e7d4ec22965a" />
 
@@ -99,7 +99,7 @@ Verify that:
 ---
 
 ### Step 4: Enable Automatic Git-Based Deployment
-1. While in the pipeline studio use the top right navigation bar
+1. While in the pipeline studio, use the top right navigation bar
 2. Click **Triggers**, then **New Trigger**.  
 3. Choose **Harness** as the trigger type.
 
@@ -110,20 +110,20 @@ Verify that:
 | Event      | Push ||
 |`                `|`                            `|`                `|
 
-4. Click **continue**
-5. Under conditions
+4. Click **Continue**
+5. Under **Conditions**
 
 | Input      | Operator     | Value |
 | ---------- | --------- | ----------------------  |
 | Branch name(s)       | Equals | <pre>`main`</pre>|
-| hanged File | Equals | <pre>`changelog.yaml`</pre>|
+| Changed File | Equals | <pre>`changelog.yaml`</pre>|
 |`                `|`                            `|`                `|
 
 6. Click **Continue**, then **Create Trigger**.
 
 ---
 
-### Step 6: Push a Changelog to Git
+### Step 5: Push a Changelog to Git
 1. Navigate to **Code Repository Module**.  
 2. Click into repo **db_changes**.  
 3. Click the **Edit** button.  
@@ -179,7 +179,7 @@ This simulates a real-world scenario where a change fails validation or breaks a
 
 #### Step 1: Add a Rollback Step
 1. Navigate to your pipeline and locate the step group containing your **Schema Apply** step.  
-2. Hover below the apply step and click the **➕** icon to add a new step to the right of the existing step.
+2. Hover to the right of the **Schema Apply** step and click the **➕** icon to add a new step to the right of the existing step.
 
 <img width="160" height="130" alt="image" src="https://github.com/user-attachments/assets/b9c51756-4c3c-4245-b9ad-a0b4df908408" />
 
@@ -197,8 +197,8 @@ This simulates a real-world scenario where a change fails validation or breaks a
 
 
 **Add Conditional Execution**
-1. Whithin the same step configuration, scroll to the top
-2. From the navigation bar select **Advanced** 
+1. Within the same step configuration, scroll to the top
+2. From the navigation bar, select **Advanced** 
 3. Click **Conditional Execution**.  
 4. Choose **If the previous step fails**.  
 5. Click **Apply Changes**, then **Save** the pipeline.
@@ -277,7 +277,7 @@ The user reviews the policy failure, understands the violation, and updates the 
 | Name       | <pre>`Block Destructive SQL`</pre>||
 |`                `|`                            `|`                `|
 
-3. Lets block **drop of data**
+3. Let's block **dropping data**
 4. Copy the REGO code below into the policy editor
 
 ```opa
@@ -339,11 +339,11 @@ deny[msg] {
 4. Expand the **Policy Enforcement** section
 5. Click on **Add/Modify Policy Set**
 6. From the navigation bar select your project
-7. Slect the **Prevent Destructive Changes** policy set
+7. Select the **Prevent Destructive Changes** policy set
 8. Click **Apply Changes**
 9. **Save Pipeline**
     
-> The new Policy Set is now active and lined to the pipeline runtime.
+> The new Policy Set is now active and linked to the pipeline runtime.
 
 ### Step 3: Push a Disallowed Change to Git
 
@@ -424,12 +424,12 @@ As changes progress, the user can view which schema versions are deployed in eac
 | ---------- | ----------------------  | ----- |
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
-| Kuberentes Cluster | k8s-prod || 
+| Kubernetes Cluster | k8s-prod || 
 |`                `|`                            `|`                `|
 
 3. Inside the step group, click **Add Step**.
-4. From the available out of the box steps select **Apply Schema**
-3. Configure accordingly
+4. From the available out-of-the-box steps, select **Apply Schema**
+5. Configure accordingly
 
 
 | Input      | Value     | Notes |
@@ -459,12 +459,12 @@ As changes progress, the user can view which schema versions are deployed in eac
 | ---------- | ----------------------  | ----- |
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
-| Kuberentes Cluster | k8s-prod || 
+| Kubernetes Cluster | k8s-prod || 
 |`                `|`                            `|`                `|
 
 3. Inside the step group, click **Add Step**.
-4. From the available out of the box steps select **Apply Schema**
-3. Configure accordingly
+4. From the available out-of-the-box steps, select **Apply Schema**
+5. Configure accordingly
 
 
 | Input      | Value     | Notes |
@@ -480,7 +480,7 @@ As changes progress, the user can view which schema versions are deployed in eac
 ### Step 3: Save and Run the Pipeline
 
 1.  Click **Save** to finalize the multi-stage pipeline.
-2.  In git, remove the table drop change, and the broken change from lab 2, then commit to kick off the pipeline.
+2.  In Git, remove the table drop change and the broken change from Lab 2, then commit to kick off the pipeline.
 3.  Observe the deployment of the previously committed schema change through:
     * Stage 1: DB1 (Dev)
     * Stage 2: DB2 (QA)
