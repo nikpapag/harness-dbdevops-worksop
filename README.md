@@ -58,7 +58,7 @@ The user then pushes a new database changelog to Git (e.g., adding a column). Th
 | ---------- | ----------------------  | ----- |
 | Name       | <pre>`DB`</pre>||
 | Enable     | Containerized Execution||
-| Kubernetes Cluster | k8s-prod || 
+| Kubernetes Cluster | k8s-db || 
 |`                `|`                            `|`                `|
 
 
